@@ -11,7 +11,7 @@ const FriendsBanner = () => {
   ];
 
   return (
-    <section className="w-full bg-slate-50/50 py-12 px-4 sm:px-6 lg:px-8">
+    <section className="w-full  pb-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         
         {/* Banner Section */}

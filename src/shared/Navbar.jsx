@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full bg-white border-b border-gray-100 shadow-sm">
+    <nav className="w-full bg-white border-b border-gray-100 shadow-sm mb-20">
       {/* Top Blue Accent Line exactly like the design */}
   
 
