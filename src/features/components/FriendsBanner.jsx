@@ -48,6 +48,9 @@ const FriendsBanner = () => {
         </div>
 
       </div>
+
+    <div className="divider"></div>
+
     </section>
   );
 };

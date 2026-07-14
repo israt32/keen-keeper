@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "picture": "https://i.ibb.co.com/svpkByDb/Ellipse-1-1.png",
+    "email": "john.doe@example.com",
+    "days_since_contact": 12,
+    "status": "overdue",
+    "tags": ["college", "close friend"],
+    "bio": "Met in university. Love hiking together.",
+    "goal": 14,
+    "next_due_date": "2025-07-20"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Johnson",
+    "picture": "https://i.ibb.co.com/7Jj2Q3yz/Ellipse-1.png",
+    "email": "sarah.johnson@example.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["work", "designer"],
+    "bio": "Worked together on a startup project.",
+    "goal": 7,
+    "next_due_date": "2025-07-15"
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "picture": "https://i.ibb.co.com/YTQfGCX8/Ellipse-1-11.png",
+    "email": "michael.brown@example.com",
+    "days_since_contact": 20,
+    "status": "overdue",
+    "tags": ["gym", "fitness"],
+    "bio": "Workout partner for the last three years.",
+    "goal": 14,
+    "next_due_date": "2025-07-10"
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "picture": "https://i.ibb.co.com/m5MX5wqS/Ellipse-1-10.png",
+    "email": "emily.davis@example.com",
+    "days_since_contact": 1,
+    "status": "on-track",
+    "tags": ["family", "cousin"],
+    "bio": "Lives abroad and visits during holidays.",
+    "goal": 30,
+    "next_due_date": "2025-08-12"
+  },
+  {
+    "id": 5,
+    "name": "David Wilson",
+    "picture": "https://i.ibb.co.com/JwgcPSP2/Ellipse-1-5.png",
+    "email": "david.wilson@example.com",
+    "days_since_contact": 8,
+    "status": "almost due",
+    "tags": ["mentor", "career"],
+    "bio": "Helped me prepare for job interviews.",
+    "goal": 10,
+    "next_due_date": "2025-07-16"
+  },
+  {
+    "id": 6,
+    "name": "Olivia Martinez",
+    "picture": "https://i.ibb.co.com/93NNZFvZ/Ellipse-1-4.png",
+    "email": "olivia.martinez@example.com",
+    "days_since_contact": 15,
+    "status": "overdue",
+    "tags": ["book club", "reader"],
+    "bio": "We exchange book recommendations every month.",
+    "goal": 14,
+    "next_due_date": "2025-07-13"
+  },
+  {
+    "id": 7,
+    "name": "James Anderson",
+    "picture": "https://i.ibb.co.com/rKL803H4/Ellipse-1-6.png",
+    "email": "james.anderson@example.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["gaming", "online friend"],
+    "bio": "Met through an online gaming community.",
+    "goal": 14,
+    "next_due_date": "2025-07-23"
+  },
+  {
+    "id": 8,
+    "name": "Sophia Taylor",
+    "picture": "https://i.ibb.co.com/yFBWW8vZ/Ellipse-1-8.png",
+    "email": "sophia.taylor@example.com",
+    "days_since_contact": 11,
+    "status": "almost due",
+    "tags": ["photography", "travel"],
+    "bio": "Travel buddy who enjoys landscape photography.",
+    "goal": 14,
+    "next_due_date": "2025-07-17"
+  },
+  {
+    "id": 9,
+    "name": "Daniela Thomas",
+    "picture": "https://i.ibb.co.com/m5MX5wqS/Ellipse-1-10.png",
+    "email": "daniel.thomas@example.com",
+    "days_since_contact": 28,
+    "status": "overdue",
+    "tags": ["neighbor", "family friend"],
+    "bio": "Neighbor who always helps during emergencies.",
+    "goal": 21,
+    "next_due_date": "2025-07-05"
+  },
+  {
+    "id": 10,
+    "name": "Emma White",
+    "picture": "https://i.ibb.co.com/svXSJKCq/Ellipse-1-9.png",
+    "email": "emma.white@example.com",
+    "days_since_contact": 0,
+    "status": "on-track",
+    "tags": ["volunteer", "community"],
+    "bio": "Met while volunteering at a local charity event.",
+    "goal": 30,
+    "next_due_date": "2025-08-13"
+  }
+]
