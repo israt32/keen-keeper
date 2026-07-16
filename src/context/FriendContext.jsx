@@ -1,4 +1,5 @@
 import React, {  createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const FriendContext = createContext()
 
@@ -9,11 +10,11 @@ const FriendProvider = ({children}) => {
     const isAlreadyExisted = callInfos.find(callInfo => callInfo.id == friendDetailsShow.id)
 
     if(isAlreadyExisted){
-      alert('this book already exist');
+      toast.error('this book already exist');
     }
     else{
       setCallInfos([...callInfos, friendDetailsShow])
-      alert(`${friendDetailsShow.name} is added to list`)
+      toast.success(`${friendDetailsShow.name} is added to list`)
     }
     
   }
