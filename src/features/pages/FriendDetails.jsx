@@ -1,44 +1,52 @@
-import React, { use } from 'react';
-import { useParams } from 'react-router';
+import React, { use, useContext, useState } from "react";
+import { Link, useParams } from "react-router";
+import { FriendContext } from "../../context/FriendContext";
 
-const freindPromise = fetch('/friendsData.json').then(res=> res.json())
+const freindPromise = fetch("/friendsData.json").then((res) => res.json());
+
+
 
 const FriendDetails = () => {
-  const friends = use(freindPromise)
-  // console.log(friends)
-  const params = useParams()
-  // console.log(params, 'param')
+  const friends = use(freindPromise);
+
+  const { id } = useParams();
+ 
+  const friendDetailsShow = friends.find((friend => friend.id == id))
+
+  const {handleCall} = useContext(FriendContext) 
+  
+
   return (
     <div className="container mx-auto p-4 sm:p-6 lg:p-8 bg-[#f8fafc]">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-        
+
         {/* Left Column: Profile Card & Action List */}
         <div className="space-y-4">
           {/* Main Info Card */}
           <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-6 flex flex-col items-center text-center">
             <div className="w-20 h-20 rounded-full overflow-hidden mb-3 border border-slate-100 shadow-sm">
               <img 
-                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=256&h=256&fit=crop" 
+                src={friendDetailsShow.picture} 
                 alt="Emma Wilson" 
                 className="w-full h-full object-cover"
               />
             </div>
             
-            <h2 className="text-xl font-bold text-slate-800 tracking-tight mb-2">Emma Wilson</h2>
+            <h2 className="text-xl font-bold text-slate-800 tracking-tight mb-2">{friendDetailsShow.name}</h2>
             
             {/* Badges */}
             <div className="flex flex-col gap-1.5 items-center mb-4">
               <span className="px-2.5 py-0.5 bg-[#fee2e2] text-[#ef4444] text-[10px] font-bold tracking-wide rounded-full uppercase">
-                Overdue
+                {friendDetailsShow.status}
               </span>
-              <span className="px-2.5 py-0.5 bg-[#d1fae5] text-[#059669] text-[10px] font-bold tracking-wide rounded-full uppercase">
-                Family
+              <span >
+                {friendDetailsShow.tags.map(tag=> <span className="px-2.5 py-0.5 mr-1 bg-[#d1fae5] text-[#059669] text-[10px] font-bold tracking-wide rounded-full uppercase ">{tag}</span>)}
               </span>
             </div>
 
             {/* Notes & Preferences */}
             <p className="text-sm italic text-slate-500 font-medium mb-1">
-              "Former colleague, great mentor"
+              {friendDetailsShow.bio}
             </p>
             <p className="text-xs text-slate-400">
               Preferred: <span className="font-medium text-slate-500">email</span>
@@ -80,20 +88,20 @@ const FriendDetails = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* Stat 1 */}
             <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-center">
-              <span className="block text-3xl font-bold text-[#1e463a] mb-1">62</span>
-              <span className="text-xs font-semibold text-slate-400 tracking-wide">Days Since Contact</span>
+              <span className="block text-3xl font-bold text-[#1e463a] mb-1">{friendDetailsShow.days_since_contact}</span>
+              <span className="text-[18px]  text-slate-400 tracking-wide">Days Since Contact</span>
             </div>
 
             {/* Stat 2 */}
             <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-center">
-              <span className="block text-3xl font-bold text-[#1e463a] mb-1">30</span>
-              <span className="text-xs font-semibold text-slate-400 tracking-wide">Goal (Days)</span>
+              <span className="block text-3xl font-bold text-[#1e463a] mb-1">{friendDetailsShow.goal}</span>
+              <span className="text-[18px]  text-slate-400 tracking-wide">Goal (Days)</span>
             </div>
 
             {/* Stat 3 */}
             <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-center">
-              <span className="block text-2xl font-bold text-[#1e463a] mb-2 pt-0.5">Feb 27, 2026</span>
-              <span className="text-xs font-semibold text-slate-400 tracking-wide">Next Due</span>
+              <span className="block text-2xl font-bold text-[#1e463a] mb-2 pt-0.5">{friendDetailsShow.next_due_date}</span>
+              <span className="text-[18px]  text-slate-400 tracking-wide">Next Due</span>
             </div>
           </div>
 
@@ -116,29 +124,30 @@ const FriendDetails = () => {
             
             <div className="grid grid-cols-3 gap-4">
               {/* Call */}
-              <button className="flex flex-col items-center justify-center gap-2 py-4 px-2 bg-slate-50 border border-slate-100 hover:bg-slate-100/70 rounded-xl transition-all duration-200">
+              
+              <Link onClick={()=>handleCall(friendDetailsShow)} to={`/timeline`} className="flex flex-col items-center justify-center gap-2 py-4 px-2 bg-slate-50 border border-slate-100 hover:bg-slate-100/70 rounded-xl transition-all duration-200">
                 <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.147-7.149c-.154-.441.012-.928.387-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                 </svg>
                 <span className="text-xs font-semibold text-slate-600">Call</span>
-              </button>
+              </Link>
 
               {/* Text */}
-              <button className="flex flex-col items-center justify-center gap-2 py-4 px-2 bg-slate-50 border border-slate-100 hover:bg-slate-100/70 rounded-xl transition-all duration-200">
+              <Link to={`/timeline`} className="flex flex-col items-center justify-center gap-2 py-4 px-2 bg-slate-50 border border-slate-100 hover:bg-slate-100/70 rounded-xl transition-all duration-200">
                 <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                 </svg>
                 <span className="text-xs font-semibold text-slate-600">Text</span>
-              </button>
+              </Link>
 
               {/* Video */}
-              <button className="flex flex-col items-center justify-center gap-2 py-4 px-2 bg-slate-50 border border-slate-100 hover:bg-slate-100/70 rounded-xl transition-all duration-200">
+              <Link to={`/timeline`} className="flex flex-col items-center justify-center gap-2 py-4 px-2 bg-slate-50 border border-slate-100 hover:bg-slate-100/70 rounded-xl transition-all duration-200">
                 <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10.5h.008v.008H9V10.5zm6 0h.008v.008H15V10.5z" />
                 </svg>
                 <span className="text-xs font-semibold text-slate-600">Video</span>
-              </button>
+              </Link>
             </div>
           </div>
 
