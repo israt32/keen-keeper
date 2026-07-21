@@ -9,6 +9,26 @@ const FriendProvider = ({children}) => {
 
    const [checkIns, setCheckIn] = useState(()=>getAllFromLocalDB());
 
+   const [loading, setLoading] = useState(true);
+
+  // 2. Load data asynchronously on initial render
+  useEffect(() => {
+    const loadCheckIns = async () => {
+      setLoading(true);
+      try {
+        const data = await getAllFromLocalDB();
+        setCheckIn(data || []);
+      } catch (error) {
+        console.error('Failed to load check-ins:', error);
+      } finally {
+        // Small timeout option if you want to simulate/see the loading screen smoothly
+        setLoading(false);
+      }
+    };
+
+    loadCheckIns();
+  }, []);
+
    
    const handleCall = (friendDetailsShow) => {
     
@@ -51,7 +71,7 @@ const FriendProvider = ({children}) => {
   }
 
   const data = {
-      checkIns, setCheckIn, handleCall, handleText, handleVideo 
+      checkIns, setCheckIn, handleCall, handleText, handleVideo , loading
   }
 
   return <FriendContext.Provider value={data}>
