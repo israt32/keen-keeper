@@ -1,34 +1,30 @@
 # 🌿 KeenKeeper
 
-> Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
 
-KeenKeeper is a modern React application designed to help you track, organize, and analyze your interactions with friends. Whether it's a quick text, a phone call, or a video catch-up, KeenKeeper keeps your timeline organized and provides visual insights into your relationship habits.
-
----
-
-## ✨ Features
-
-* **📱 Multi-Channel Check-Ins:** Track interactions via Call, Text, or Video.
-* **⏳ Interaction Timeline:** View your complete history of check-ins with quick drop-down filtering (Call, Text, Video, or All).
-* **📊 Friendship Analytics:** Interactive donut charts powered by Recharts to visualize your interaction balance.
-* **💾 Local Persistence:** Automatically saves your history to LocalStorage so your data stays on your device.
-* **⚡ Smooth UX & Feedback:** Real-time toast notifications powered by `react-toastify` and elegant loading states using DaisyUI.
-* **🎨 Fully Responsive:** Crafted with Tailwind CSS and DaisyUI for a seamless experience on both desktop and mobile.
+### 📌 Project Overview
+**KeenKeeper** is a personal relationship management tool designed to help users track, organize, and analyze their interactions with friends to keep meaningful connections alive.
 
 ---
 
-## 🛠️ Tech Stack
-
-* **Frontend:** React.js (Vite / CRA)
-* **Styling:** Tailwind CSS + DaisyUI
-* **Icons:** Lucide React (`lucide-react`)
-* **Data Visualization:** Recharts
-* **Notifications:** React Toastify (`react-toastify`)
-* **State Management:** React Context API
+### 🛠️ Technologies Used
+* **Frontend Library:** React.js (Vite)
+* **Styling & UI:** Tailwind CSS & DaisyUI
+* **Icons & Visuals:** Lucide React (`lucide-react`) & Recharts
+* **State Management & Persistence:** React Context API & Browser `localStorage`
+* **User Feedback:** React Toastify (`react-toastify`)
 
 ---
 
-## 📂 Project Structure
+### ✨ Key Features
+
+1. **📱 Multi-Channel Check-In Tracking**  
+   Log and classify interactions with friends across multiple channels—including Calls, Texts, and Video chats—in just a click.
+
+2. **📊 Visual Friendship Analytics**  
+   Gain clear insights into your connection habits using interactive, real-time donut charts that break down your interaction history by type.
+
+3. **⏳ Dynamic Timeline & Smart Filtering**  
+   Browse a clean, chronological history of past check-ins with fast drop-down filtering by interaction type and seamless persistent storage.
 
 ## 📂 Project Structure
 
