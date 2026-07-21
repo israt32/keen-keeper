@@ -2,7 +2,7 @@ import React from 'react';
 import { Plus } from 'lucide-react';
 
 const FriendsBanner = () => {
-  // Stat Card Data matching the design exactly
+  
   const stats = [
     { value: '10', label: 'Total Friends' },
     { value: '3', label: 'On Track' },
@@ -14,7 +14,7 @@ const FriendsBanner = () => {
     <section className="w-full  pb-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         
-        {/* Banner Section */}
+       
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
             Friends to keep close in your life
@@ -23,14 +23,14 @@ const FriendsBanner = () => {
             Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
           </p>
           
-          {/* Action Button */}
+         
           <button className="inline-flex items-center gap-1.5 bg-[#1e463a] hover:bg-[#153128] text-white text-sm font-medium px-4 py-2 rounded shadow-sm transition-colors duration-200">
             <Plus size={16} strokeWidth={2.5} />
             Add a Friend
           </button>
         </div>
 
-        {/* Stats Grid Section */}
+        
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, index) => (
             <div 

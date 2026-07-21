@@ -5,6 +5,7 @@ import ErrorPage from "../features/errorPage/ErrorPage";
 import FriendDetails from "../features/pages/FriendDetails";
 import { Timeline } from "lucide-react";
 import TimelinePage from "../features/pages/TimelinePage";
+import StatsPage from "../features/pages/StatsPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
    {
     path: '/timeline',
     element: <TimelinePage></TimelinePage>
+   },
+   {
+    path: '/stats',
+    element: <StatsPage></StatsPage>
    }
   ],
   errorElement: <ErrorPage></ErrorPage>

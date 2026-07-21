@@ -1,42 +1,57 @@
 import { MessageSquareText, Phone, SquarePlay } from 'lucide-react';
-import React, {  createContext, useState } from 'react';
+import React, {  createContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { addToLocalDB, getAllFromLocalDB } from '../utils/localDB';
 
 export const FriendContext = createContext()
 
 const FriendProvider = ({children}) => {
 
-   const [checkIns, setCheckIn] = useState([]);
+   const [checkIns, setCheckIn] = useState(()=>getAllFromLocalDB());
+
    
    const handleCall = (friendDetailsShow) => {
     
+    
 
-   const newFriendDetailsShow = {...friendDetailsShow, type: 'Call', icon: <Phone />};
+   const newFriendDetailsShow = {...friendDetailsShow, type: 'Call' };
    if(newFriendDetailsShow){
      setCheckIn([...checkIns, newFriendDetailsShow])
     toast.success(`Call with ${newFriendDetailsShow.name}!`)
    }
 
+   addToLocalDB(newFriendDetailsShow)
+
   }
 
   const handleText = (friendDetailsShow) => {
-   const newFriendDetailsShow =  {...friendDetailsShow, type: 'Text', icon: <MessageSquareText  />};
+
+  
+
+   const newFriendDetailsShow =  {...friendDetailsShow, type: 'Text'  };
    if(newFriendDetailsShow){
      setCheckIn([...checkIns, newFriendDetailsShow])
       toast.success(`Text with ${newFriendDetailsShow.name}!`)
    }
+
+   addToLocalDB(newFriendDetailsShow)
+
   }
   
   const handleVideo = (friendDetailsShow) => {
-  const newFriendDetailsShow =  {...friendDetailsShow, type: 'Video', icon: <SquarePlay  />};
+    
+
+  const newFriendDetailsShow =  {...friendDetailsShow, type: 'Video' };
   if(newFriendDetailsShow){
     setCheckIn([...checkIns, newFriendDetailsShow])
     toast.success(`Video with ${newFriendDetailsShow.name}!`)
   }
+
+   addToLocalDB(newFriendDetailsShow)
   }
 
   const data = {
-      checkIns, handleCall, handleText, handleVideo 
+      checkIns, setCheckIn, handleCall, handleText, handleVideo 
   }
 
   return <FriendContext.Provider value={data}>
