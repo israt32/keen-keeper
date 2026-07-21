@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FriendsBanner from '../components/FriendsBanner';
-import FriendDetails from '../pages/FriendDetails';
 import FriendLists from '../components/FriendLists';
+import { FriendContext } from '../../context/FriendContext';
+
 
 const HomePage = () => {
+  const { loading } = useContext(FriendContext);
+
   return (
     <div>
-      <FriendsBanner></FriendsBanner>
-      <FriendLists></FriendLists>
+      <FriendsBanner />
+
+      {loading ? (
+        <div className="min-h-[40vh] flex flex-col items-center justify-center gap-3">
+         <span className="loading loading-spinner loading-xl text-[#1e463a]"></span>
+        </div>
+      ) : (
+        <FriendLists />
+      )}
     </div>
   );
 };
